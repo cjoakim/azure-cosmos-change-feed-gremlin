@@ -77,8 +77,17 @@ This gets logged by the Locally Running Azure Function:
 
 #### Create an Azure Function App in Azure Portal
 
-- Be sure to add a configuration setting for **AZURE_COSMOSDB_GRAPHDB_CONN_STRING**
-- Open a Web Browser tab to the Monitor view for your Function
+<p align="center" width="95%">
+  <img src="img/create-function-app-in-portal.png">
+</p>
+
+Be sure to add a configuration setting for **AZURE_COSMOSDB_GRAPHDB_CONN_STRING**
+
+<p align="center" width="95%">
+  <img src="img/function-app-conn-string-setting.png">
+</p>
+
+Open a Web Browser tab to the Monitor view for your Function (see screen shot below)
 
 #### Deploy the Function to Azure with the Azure Function Tools V3
 
@@ -99,13 +108,30 @@ Functions in CosmosGremlinTrigger:
 
 One way to do this is in the Azure Portal UI, with a Gremlin statement, as shown below.
 
+<p align="center" width="95%">
+  <img src="img/add-vertex-in-portal.png">
+</p>
+
+Here are some sample Gremlin commands to create Vertices:
+```
+g.addV('library').property('pk','@azure|amqp-common').property('id','@azure|amqp-common').property('desc','Common library for amqp based azure sdks like @azure|event-hubs.').property('name','@azure/amqp-common')
+g.addV('library').property('pk','@azure|cosmos').property('id','@azure|cosmos').property('desc','Azure Cosmos DB Service Node.js SDK for SQL API').property('name','@azure/cosmos')
+g.addV('library').property('pk','@azure|cosmos-sign').property('id','@azure|cosmos-sign').property('desc','Utility for signing Azure Cosmos keys').property('name','@azure/cosmos-sign')
+g.addV('library').property('pk','@azure|event-hubs').property('id','@azure|event-hubs').property('desc','Azure Event Hubs SDK for JS.').property('name','@azure/event-hubs')
+g.addV('library').property('pk','@azure|ms-rest-azure-env').property('id','@azure|ms-rest-azure-env').property('desc','Isomorphic library that provides Azure endpoints for different Azure Environments|Clouds.').property('name','@azure/ms-rest-azure-env')
+g.addV('library').property('pk','@azure|ms-rest-js').property('id','@azure|ms-rest-js').property('desc','Isomorphic client Runtime for Typescript|node.js|browser javascript client libraries generated using AutoRest').property('name','@azure/ms-rest-js')
+g.addV('library').property('pk','@azure|ms-rest-nodeauth').property('id','@azure|ms-rest-nodeauth').property('desc','Azure Authentication library in node.js with type definitions.').property('name','@azure/ms-rest-nodeauth')
+g.addV('library').property('pk','@azure|storage-blob').property('id','@azure|storage-blob').property('desc','Microsoft Azure Storage SDK for JavaScript - Blob').property('name','@azure/storage-blob')
+```
 
 #### Notice that the Azure Function App was triggered, per the Monitor view in Azure Portal
 
+<p align="center" width="95%">
+  <img src="img/function-monitor-view.png">
+</p>
 
 ---
 
 ## Other Repos
 
 - https://github.com/Azure-Samples/azure-cosmos-db-graph-npm-bom-sample
-
