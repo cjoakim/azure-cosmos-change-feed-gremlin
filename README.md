@@ -18,8 +18,8 @@ Consume the CosmosDB/Gremlin Change Feed with an Azure Function
 ### Create an Azure Functions App on your workstation in Visual Studio
 
 - I used VS for macOS
-- Created a a new Azure Functions project called **CosmosGremlinTrigger**
-- Added minor edits to **CosmosGremlinTrigger.cs** to iterate the docs and log them as JSON.
+- Created a new Azure Functions project called **CosmosGremlinTrigger**
+- Added minor edits to **CosmosGremlinTrigger.cs** to iterate the changed documents and log them as JSON.
 - Added the following line to **CosmosGremlinTrigger.cs** to automatically create the **leases** collection:
 ```
 CreateLeaseCollectionIfNotExists = true,
