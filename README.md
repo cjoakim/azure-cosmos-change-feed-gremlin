@@ -47,19 +47,20 @@ Function Runtime Version: 3.0.14916.0
 
 Functions:
 	CosmosGremlinTrigger: cosmosDBTrigger
-
-For detailed output, run func with --verbose flag.
-[2021-01-21T19:03:38.416Z] Executing 'CosmosGremlinTrigger' (Reason='New changes on collection npm at 2021-01-21T19:03:38.3768270Z', Id=eec855bc-b7ca-48d2-88d3-5d325d10eb91)
+...
 ```
 
 #### Add a Vertex to the Graph, the Locally Running Function Logs it
 
-For example, with this Gremlin statement:
+For example, with this Gremlin statement.  You can execute this statement either in
+Azure Portal or with code.
+
 ```
 g.addV('library').property('pk','@azure|event-hubs').property('id','@azure|event-hubs').property('desc','Azure Event Hubs SDK for JS.').property('name','@azure/event-hubs')
 ```
 
 This gets logged by the Locally Running Azure Function:
+
 ```
 [2021-01-21T19:03:38.427Z] Documents modified 1
 [2021-01-21T19:03:38.427Z] Document Id @azure|event-hubs
@@ -75,6 +76,8 @@ This gets logged by the Locally Running Azure Function:
 [2021-01-21T19:03:38.435Z] }
 ```
 
+---
+
 #### Create an Azure Function App in Azure Portal
 
 <p align="center" width="95%">
@@ -87,7 +90,10 @@ Be sure to add a configuration setting for **AZURE_COSMOSDB_GRAPHDB_CONN_STRING*
   <img src="img/function-app-conn-string-setting.png">
 </p>
 
+
 Open a Web Browser tab to the Monitor view for your Function (see screen shot below)
+
+---
 
 #### Deploy the Function to Azure with the Azure Function Tools V3
 
@@ -123,6 +129,8 @@ g.addV('library').property('pk','@azure|ms-rest-js').property('id','@azure|ms-re
 g.addV('library').property('pk','@azure|ms-rest-nodeauth').property('id','@azure|ms-rest-nodeauth').property('desc','Azure Authentication library in node.js with type definitions.').property('name','@azure/ms-rest-nodeauth')
 g.addV('library').property('pk','@azure|storage-blob').property('id','@azure|storage-blob').property('desc','Microsoft Azure Storage SDK for JavaScript - Blob').property('name','@azure/storage-blob')
 ```
+
+---
 
 #### Notice that the Azure Function App was triggered, per the Monitor view in Azure Portal
 
